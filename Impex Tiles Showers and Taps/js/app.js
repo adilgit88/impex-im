@@ -143,7 +143,19 @@ class Swiper {
     const n = this.slides.length;
     i = ((i % n) + n) % n;
     this.index = i;
-    this.slides.forEach((s,si)=>s.classList.toggle('is-active', si===i));
+    this.slides.forEach((s, si) => {
+      const isActive = si === i;
+      s.classList.toggle('is-active', isActive);
+      const vid = s.querySelector('video.water-video');
+      if (vid) {
+        if (isActive) {
+          vid.currentTime = 0;
+          vid.play().catch(() => {});
+        } else {
+          vid.pause();
+        }
+      }
+    });
     this.dots.forEach((d,di)=>d.classList.toggle('is-active', di===i));
     const p = this.products[i];
     if (this.copySlots.length){

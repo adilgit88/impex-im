@@ -670,3 +670,24 @@ section { position:relative; scroll-snap-align:start; }
   .promise-line h2 .underline::after { transform:scaleX(1) !important; transition:none !important; }
   html { scroll-behavior:auto; }
 }
+
+/* Real water videos */
+/* .swiper-slide { position: relative; overflow: hidden; } */
+.swiper-slide video.water-video {
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: screen;
+  opacity: 0.92;
+  pointer-events: none;
+  z-index: 2;
+}
+/* Hide all old CSS water animation divs */
+.swiper-slide .water,
+.swiper-slide [class*="water-"] {
+  display: none !important;
+}
+
