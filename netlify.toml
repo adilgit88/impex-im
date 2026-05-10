@@ -1,0 +1,27 @@
+# Netlify configuration for IMPEX TILES staging
+# This tells Netlify to publish from the repo root
+
+[build]
+  publish = "."
+
+# Make sure subfolder URLs work cleanly without trailing-slash issues
+[[redirects]]
+  from = "/landing"
+  to = "/landing/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/showers-taps"
+  to = "/showers-taps/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/tubs-toilets"
+  to = "/tubs-toilets/index.html"
+  status = 200
+
+# Block search engines from indexing the staging site
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
