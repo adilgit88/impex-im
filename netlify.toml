@@ -1,10 +1,17 @@
 # Netlify configuration for IMPEX TILES staging
-# This tells Netlify to publish from the repo root
+# Root URL redirects directly to the immersive landing page
 
 [build]
   publish = "."
 
-# Make sure subfolder URLs work cleanly without trailing-slash issues
+# Root → Landing page (force = true overrides the existing index.html)
+[[redirects]]
+  from = "/"
+  to = "/landing/"
+  status = 302
+  force = true
+
+# Clean subfolder URLs without trailing-slash issues
 [[redirects]]
   from = "/landing"
   to = "/landing/index.html"
